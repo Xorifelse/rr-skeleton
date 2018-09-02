@@ -16,7 +16,7 @@ export function getSkeletonThunk() {
     axios.get('https://reqres.in/api/users')
       .then(response => {
         response.data.data.map((value, index) => {
-          setTimeout(() => dispatch(skeletonAction(value.first_name)), index * 1000 + 1000)
+          return setTimeout(() => dispatch(skeletonAction(value.first_name)), index * 1000 + 1000)
         })
       })
   }
