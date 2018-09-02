@@ -3,13 +3,14 @@ import {connect} from 'react-redux'
 
 import Skeleton from './Skeleton'
 
-import {skeletonAction} from '../actions/skeletonAction'
+import {skeletonAction, getSkeletonThunk} from '../actions/skeletonAction'
 
 class SkeletonContainer extends React.PureComponent {
   state = {}
 
   componentDidMount(){
     this.props.skeletonAction('Simple skeleton webpage')
+    this.props.getSkeletonThunk()
   }
 
   render() {
@@ -19,4 +20,4 @@ class SkeletonContainer extends React.PureComponent {
 
 const mapStateToProps = (data) => ({data})
 
-export default connect(mapStateToProps, {skeletonAction})(SkeletonContainer)
+export default connect(mapStateToProps, {skeletonAction, getSkeletonThunk})(SkeletonContainer)
